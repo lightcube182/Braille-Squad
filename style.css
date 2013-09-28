@@ -1,0 +1,17 @@
+h1{
+    font-family:helvetica;
+    text-align:center;
+    font-size:60px;
+}
+
+#menu{
+    font-family: helvetica;
+    text-align:center;
+    color:purple;
+    font-size:40px;
+    margin-top:300px;
+}
+
+.button:hover{
+    color:blue;
+}
