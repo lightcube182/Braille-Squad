@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>Braille Squad Game!</title>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="scribble.js"></script>
     <link rel="stylesheet" type="text/ref" href="style.css">
 </head>
 
 <body>
-    <h1>BRAILLE SQUADZ!!!</h1>
+    <div role="application">
+    <h1 role="heading" tabindex="0">BRAILLE SQUAD!!!</h1>
     <div id="menu">
-        <span id="scribble" class="button">Scribble</span>
-        <span id="Matching" class="button">Matching</span>
-        <span id="Typing" class="button">Typing</span>
+        <div id="scribble" class="button" role="button" aria-pressed="false" aria-labelledby="scribble_label" tabindex="0">
+            Scribble
+            <div class="cellRow">
+		<div class="cell" id="cell1">
+		    <img src="cell.png" alt="braille cell" height="300" width="300">
+		</div>
+		<div class="cell" id="cell4">
+		    <img src="cell.png" alt="braille cell" height="300" width="300">
+		</div>
+	    </div>
+	    <div class="cellRow">
+		<div class="cell" id="cell2">
+		    <img src="cell.png" alt="braille cell" height="300" width="300">
+		</div>
+		<div class="cell" id="cell5">
+		    <img src="cell.png" alt="braille cell" height="300" width="300">
+		</div>
+	    </div>
+	    <div class="cellRow">
+		<div class="cell" id="cell3">
+		    <img src="cell.png" alt="braille cell" height="300" width="300">
+		</div>
+		<div class="cell" id="cell6">
+		    <img src="cell.png" alt="braille cell" height="300" width="300">
+		</div>
+	    </div>    
+        </div>
+        <div id="matching" class="button" role="button" aria-pressed="false" aria-labelledby="matching_label" tabindex="0">Matching</div>
+        <div id="typing" class="button" role="button" aria-pressed="false" aria-labelledby="typing_label" tabindex="0">Typing</div>
+    </div>
+    <div id="labels">
+        <p id="scribble_label">Scribble</p>
+        <p id="matching_label">Matching</p>
+        <p id="typing_label">Typing</p>
+    </div>
     </div>
 </body>
 </html>
