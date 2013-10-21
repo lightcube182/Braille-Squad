@@ -32,3 +32,13 @@ h1{
 .cellRow {
     display:none;
 }
+
+.infoBar {
+    color:green;
+    font-size:30px;
+}
+
+.infoBar:hover {
+    color:green;
+    cursor:default;
+}
