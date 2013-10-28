@@ -47,4 +47,9 @@ h1{
     position:fixed;
     left:400px;
     top:200px;
+
+}
+
+#menuButton {
+    display:none;
 }
