@@ -5,6 +5,7 @@ $(document).ready(function(){
 		$("#typing").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
+	        $("#textbox").focus();
 		$(document).keydown(function(e) {
 			switch(e.which) {
 				case 65: //a
@@ -259,6 +260,7 @@ $(document).ready(function(){
 		$("#scribble").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
+	    $("#textbox").focus();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
 		var instruction = "Type the letter " + String.fromCharCode(randLetterKey);
 		$("div.infoBar").text(instruction);

@@ -42,3 +42,8 @@ h1{
     color:green;
     cursor:default;
 }
+
+#form {
+    position:fixed;
+    left:-200px;
+}
