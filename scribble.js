@@ -14,8 +14,9 @@ $(document).ready(function(){
 		$("#typing").show();
 		$("#scribble").show();
 		$("h1").show();
-		$(".infoBar").hide();
+		$("div.infoBar").hide();
 		$("#menu").css("margin-top", "300px");
+		$("div.infoBar").text("");
 		$("#menuButton").hide();
 	});
 	
@@ -27,6 +28,7 @@ $(document).ready(function(){
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
 	        $("#textbox").focus();
+		$("div.infoBar").show();
 		$(document).keydown(function(e) {
 			switch(e.which) {
 				case 65: //a
@@ -281,7 +283,7 @@ $(document).ready(function(){
 		$("#scribble").hide();
 		$("#menuButton").show();
 		$("h1").hide();
-		
+		$("div.infoBar").show();
 		$("#menu").css("margin-top", "0");
 	    $("#textbox").focus();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
