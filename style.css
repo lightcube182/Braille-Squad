@@ -47,3 +47,7 @@ h1{
     position:fixed;
     left:-200px;
 }
+
+#menuButton {
+    display:none;
+}

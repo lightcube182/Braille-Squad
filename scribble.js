@@ -6,12 +6,24 @@ $(document).ready(function(){
 		}
 	});*/
 	
+	$("#menuButton").click(function() {
+		$(".cellRow").hide();
+		$("#matching").show();
+		$("#typing").show();
+		$("#scribble").show();
+		$("h1").show();
+		$(".infoBar").hide();
+		$("#menu").css("margin-top", "300px");
+		$("#menuButton").hide();
+	});
+	
 	$("#scribble").click(function(e){
 		$(".cellRow").show();
 		$("#matching").hide();
 		$("#typing").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
+		$("#menuButton").show();
 	        $("#textbox").focus();
 		$(document).keydown(function(e) {
 			switch(e.which) {
@@ -265,7 +277,9 @@ $(document).ready(function(){
 		$(".cellRow").show();
 		$("#matching").hide();
 		$("#scribble").hide();
+		$("#menuButton").show();
 		$("h1").hide();
+		
 		$("#menu").css("margin-top", "0");
 	    $("#textbox").focus();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
