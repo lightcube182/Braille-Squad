@@ -45,5 +45,6 @@ h1{
 
 #form {
     position:fixed;
-    left:-200px;
+    left:400px;
+    top:200px;
 }

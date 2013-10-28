@@ -1,11 +1,12 @@
 $(document).ready(function(){
-	/*$("#textbox").onchange(function(e){
+	
+	$("#textbox").keyup(function(e){
 		if ($("#textbox").val().length>1) {
 			var temp=$("#textbox").val();
 			$("#textbox").val(temp.substring((temp.length-1),(temp.length)));
 		}
-	});*/
-	
+	});
+		
 	$("#scribble").click(function(e){
 		$(".cellRow").show();
 		$("#matching").hide();
