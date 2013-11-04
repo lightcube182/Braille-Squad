@@ -46,8 +46,7 @@ h1{
 
 #form {
     position:fixed;
-    left:200px;
-    top:10px;
+    left:-300px;
 }
 
 #menuButton {
