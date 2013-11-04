@@ -30,6 +30,8 @@ $(document).ready(function(){
 	        $("#textbox").focus();
 		$("div.infoBar").show();
 		$(document).keydown(function(e) {
+			e.preventDefault();
+			$("#textbox").val("a");
 			$("#textbox").focus();
 			switch(e.which) {
 				case 65: //a
