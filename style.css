@@ -36,6 +36,7 @@ h1{
 .infoBar {
     color:green;
     font-size:30px;
+    display:none;
 }
 
 .infoBar:hover {
@@ -49,5 +50,10 @@ h1{
 }
 
 #menuButton {
+    display:none;
+}
+
+#firstLetter, #secondLetter, #thirdLetter, #fourthLetter {
+    border-bottom: groove;
     display:none;
 }
