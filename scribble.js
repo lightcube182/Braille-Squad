@@ -30,6 +30,7 @@ $(document).ready(function(){
 	        $("#textbox").focus();
 		$("div.infoBar").show();
 		$(document).keydown(function(e) {
+			$("#textbox").focus();
 			switch(e.which) {
 				case 65: //a
 					$(".cell1").css("visibility","visible");
