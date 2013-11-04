@@ -7,7 +7,6 @@ $(document).ready(function(){
 			$("#textbox").val(temp.substring((temp.length-1),(temp.length)));
 		}
 	});
-		
 	
 	$("#menuButton").click(function() {
 		$(".cellRow").hide();
@@ -338,8 +337,6 @@ $(document).ready(function(){
 		correctAnswer = randLetterKeys[correctNum];
 		instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 		$("div.infoBar").text(instruction);
-		//setCaretPosition($(document.getElementById('textbox')), 7);
-		alert(doGetCaretPosition(document.getElementById('textbox')));
 		switch(randLetterKeys[0]) {
 			case 65: //a
 				$("#firstLetter .cell1").css("visibility","visible");
