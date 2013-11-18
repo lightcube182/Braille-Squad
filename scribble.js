@@ -14,7 +14,6 @@ $(document).ready(function(){
 	});
 	player.addEventListener('loadedmetadata',function(){
 		loadedData = true;
-		$("#textbox").focus();
 		nextGame();
 	});
 	
