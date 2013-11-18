@@ -20,6 +20,7 @@ $(document).ready(function(){
 	//code for button presses (and loading in the audio)
 	$("#scribble").click(function(e){
 		if ( loadedData == true) {
+			$("#textbox").focus();
 			scribbleGame();
 		}
 		else {
@@ -30,6 +31,7 @@ $(document).ready(function(){
 	
 	$("#matching").click(function(e){
 		if ( loadedData == true) {
+			$("#textbox").focus();
 			matchingGame();
 		}
 		else {
@@ -40,6 +42,7 @@ $(document).ready(function(){
 
 	$("#typing").click(function(e){	
 		if ( loadedData == true) {
+			$("#textbox").focus();
 			typingGame();
 		}
 		else {
