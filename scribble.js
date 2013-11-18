@@ -21,34 +21,34 @@ $(document).ready(function(){
 	//code for button presses (and loading in the audio)
 	$("#scribble").click(function(e){
 		if ( loadedData == true) {
-			$("#textbox").focus();
 			scribbleGame();
 		}
 		else {
 			nextGame = scribbleGame;
-			player.load();
+			player.load();			
+			$("#textbox").focus();
 		}
 	});
 	
 	$("#matching").click(function(e){
 		if ( loadedData == true) {
-			$("#textbox").focus();
 			matchingGame();
 		}
 		else {
 			nextGame = matchingGame;
 			player.load();
+			$("#textbox").focus();
 		}
 	});
 
 	$("#typing").click(function(e){	
 		if ( loadedData == true) {
-			$("#textbox").focus();
 			typingGame();
 		}
 		else {
 			nextGame = typingGame;
 			player.load();
+			$("#textbox").focus();
 		}
 	});	
 	
