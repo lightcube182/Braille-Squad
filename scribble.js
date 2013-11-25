@@ -70,7 +70,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#textbox").trigger(function() {
+	$("#textbox").keyup(function() {
 		if (doGetCaretPosition(document.getElementById('textbox')) == 0) {
 			if (randLetterKeys[0] == correctAnswer) {
 				$("div.infoBar").text("That's right!!!");
