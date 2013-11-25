@@ -1,4 +1,55 @@
 $(document).ready(function(){
+
+	//code for audio:
+	var loadedData = false;
+	var stopTime = 0;
+	var startTime = 0;
+	function blankFunc() {};
+	var nextGame = blankFunc;
+	var player = document.getElementById("aplayer");
+	player.addEventListener('timeupdate',function() {
+	if( stopTime <= player.currentTime) {
+		player.pause();
+	}
+	});
+	player.addEventListener('loadedmetadata',function(){
+		loadedData = true;
+		nextGame();
+	});
+	
+	//code for button presses (and loading in the audio)
+	$("#scribble").click(function(e){
+		if ( loadedData == true) {
+			scribbleGame();
+		}
+		else {
+			nextGame = scribbleGame;
+			player.load();			
+			$("#textbox").focus();
+		}
+	});
+	
+	$("#matching").click(function(e){
+		if ( loadedData == true) {
+			matchingGame();
+		}
+		else {
+			nextGame = matchingGame;
+			player.load();
+			$("#textbox").focus();
+		}
+	});
+
+	$("#typing").click(function(e){	
+		if ( loadedData == true) {
+			typingGame();
+		}
+		else {
+			nextGame = typingGame;
+			player.load();
+			$("#textbox").focus();
+		}
+	});	
 	
 	var instruction;	
 	$("#textbox").keyup(function(e){
@@ -103,9 +154,10 @@ $(document).ready(function(){
 		$("#fourthLetter").hide();
 		$("#menuButton").hide();
 		$("#textbox").val("");
+		$(document).off("keydown");
 	});
 	
-	$("#scribble").click(function(e){
+	function scribbleGame() {
 		$("#scribble .cellRow").show();
 		$("#matching").hide();
 		$("#typing").hide();
@@ -120,9 +172,10 @@ $(document).ready(function(){
 				$("div.infoBar").text("");
 				$("#textbox").focus();
 				generateLetter(e.which, "");
+				playScribbleAudio(e.which);
 			}
 		});
-	});
+	};
 	
 	var randLetterKeys = new Array();
 	var correctAnswer;
@@ -155,7 +208,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	$("#matching").click(function(e){
+	function matchingGame () {
 		$("#firstLetter, #secondLetter, #thirdLetter, #fourthLetter").show();
 		$("#firstLetter .cellRow").show();
 		$("#secondLetter .cellRow").show();
@@ -181,7 +234,7 @@ $(document).ready(function(){
 		generateLetter(randLetterKeys[1], "#secondLetter");
 		generateLetter(randLetterKeys[2], "#thirdLetter");
 		generateLetter(randLetterKeys[3], "#fourthLetter");		
-	});
+	};
 	
 	$("#firstLetter").click(function(e){
 		if (randLetterKeys[0] == correctAnswer) {
@@ -270,7 +323,7 @@ $(document).ready(function(){
 
 	});
 	
-	$("#typing").click(function(e){
+	function typingGame(){
 		$("#typing .cellRow").show();
 		$("#matching").hide();
 		$("#scribble").hide();
@@ -299,7 +352,7 @@ $(document).ready(function(){
 				generateLetter(randLetterKey, "");
 			}
 		});
-	});
+	};
 	
 	function generateLetter(charCode, identifier) {
 		switch(charCode) {
@@ -521,5 +574,45 @@ $(document).ready(function(){
 				$("div.infoBar").text("That's not a letter! Try again!!!");
 				break;
 		}
-	}
+	};
+	
+	function playScribbleAudio(charCode) {
+		switch(charCode) {
+			case 65:
+			case 66:
+			case 67:
+			case 68:
+			case 69:
+			case 70:
+			case 71:
+			case 72:
+			case 73:
+			case 74:
+			case 75:
+			case 76:
+			case 77:
+			case 78:
+			case 79:
+			case 80:
+			case 81:
+			case 82:
+			case 83:
+			case 84:
+			case 85:
+			case 86:
+			case 87:
+			case 88:
+			case 89:
+			case 90:
+				startTime = 1;
+				stopTime = 6;
+				break;
+			default:
+				startTime = 7;
+				stopTime = 11;
+				break;
+		}
+		player.currentTime = startTime;
+		player.play();
+	};
 });
