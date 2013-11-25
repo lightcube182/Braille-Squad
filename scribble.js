@@ -8,7 +8,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#textbox").click(function() {
+	$("#textbox").change(function() {
 		if (doGetCaretPosition(document.getElementById('textbox')) == 0) {
 			if (randLetterKeys[0] == correctAnswer) {
 				$("div.infoBar").text("That's right!!!");
