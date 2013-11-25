@@ -29,6 +29,17 @@ $(document).ready(function(){
 		}
 	});
 	
+	$("#training").click(function(e){
+		if ( loadedData == true) {
+			trainingGame();
+		}
+		else {
+			nextGame = trainingGame;
+			player.load();			
+			$("#textbox").focus();
+		}
+	});
+	
 	$("#matching").click(function(e){
 		if ( loadedData == true) {
 			matchingGame();
@@ -144,6 +155,7 @@ $(document).ready(function(){
 		$("#matching").show();
 		$("#typing").show();
 		$("#scribble").show();
+		$("#training").show();
 		$("h1").show();
 		$("div.infoBar").hide();
 		$("#menu").css("margin-top", "300px");
@@ -157,10 +169,43 @@ $(document).ready(function(){
 		$(document).off("keydown");
 	});
 	
+	function trainingGame() {
+		$("#training .cellRow").show();
+		$("#matching").hide();
+		$("#typing").hide();
+		$("#scribble").hide();
+		$("h1").hide();
+		$("#menu").css("margin-top", "0");
+		$("#menuButton").show();
+	    $("#textbox").focus();
+		$("div.infoBar").show();
+		$("#matchingInfoBar").hide();
+		var randLetterKey = Math.floor((Math.random()*26) + 65);
+		instruction = getTrainingInstruction(randLetterKey);
+		$("div.infoBar").text(instruction);
+		generateLetter(randLetterKey, "");
+		$(document).keydown(function(e) {
+			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
+				if (e.which == randLetterKey) {
+					$("div.infoBar").text("Congratulations, that's right!!!");
+					randLetterKey = Math.floor((Math.random()*26) + 65);
+					instruction = getTrainingInstruction(randLetterKey);
+					$("div.infoBar").append("<br>" + instruction);
+				} else if (e.which >= 65 && e.which <= 90) {
+					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+				} else {
+					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
+				}
+				generateLetter(randLetterKey, "");
+			}
+		});
+	};
+	
 	function scribbleGame() {
 		$("#scribble .cellRow").show();
 		$("#matching").hide();
 		$("#typing").hide();
+		$("#training").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
@@ -216,6 +261,7 @@ $(document).ready(function(){
 		$("#fourthLetter .cellRow").show();
 		$("#scribble").hide();
 		$("#typing").hide();
+		$("#training").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
@@ -327,6 +373,7 @@ $(document).ready(function(){
 		$("#typing .cellRow").show();
 		$("#matching").hide();
 		$("#scribble").hide();
+		$("#training").hide();
 		$("#menuButton").show();
 		$("h1").hide();
 		$("div.infoBar").show();
@@ -574,6 +621,126 @@ $(document).ready(function(){
 				$("div.infoBar").text("That's not a letter! Try again!!!");
 				break;
 		}
+	};
+	
+	function getTrainingInstruction(charCode) {
+		var instructionStart = "Press cells ";
+		var instructionMiddle = " to make the letter ";
+		var instructionLetter = "";
+		var instructionCells = "";
+		switch(charCode) {
+			case 65:
+				instructionLetter = "a";
+				instructionCells = "1"
+				break;
+			case 66:
+				instructionLetter = "b";
+				instructionCells = "1 and 2";
+				break;
+			case 67:
+				instructionLetter = "c";
+				instructionCells = "1 and 4";
+				break;
+			case 68:
+				instructionLetter = "d";
+				instructionCells = "1, 4, and 5";
+				break;
+			case 69:
+				instructionLetter = "e";
+				instructionCells = "1 and 5";
+				break;
+			case 70:
+				instructionLetter = "f";
+				instructionCells = "1, 2, and 4";
+				break;
+			case 71:
+				instructionLetter = "g";
+				instructionCells = "1, 2, 4, and 5";
+				break;
+			case 72:
+				instructionLetter = "h";
+				instructionCells = "1, 2, 5";
+				break;
+			case 73:
+				instructionLetter = "i";
+				instructionCells = "2 and 4";
+				break;
+			case 74:
+				instructionLetter = "j";
+				instructionCells = "2, 4, and 5";
+				break;
+			case 75:
+				instructionLetter = "k";
+				instructionCells = "1 and 3";
+				break;
+			case 76:
+				instructionLetter = "l";
+				instructionCells = "1, 2, and 3";
+				break;
+			case 77:
+				instructionLetter = "m";
+				instructionCells = "1, 3, and 4";
+				break;
+			case 78:
+				instructionLetter = "n";
+				instructionCells = "1, 3, 4, and 5";
+				break;
+			case 79:
+				instructionLetter = "o";
+				instructionCells = "1, 3, and 5";
+				break;
+			case 80:
+				instructionLetter = "p";
+				instructionCells = "1, 2, 3, and 4";
+				break;
+			case 81:
+				instructionLetter = "q";
+				instructionCells = "1, 2, 3, 4, and 5";
+				break;
+			case 82:
+				instructionLetter = "r";
+				instructionCells = "1, 2, 3, and 5";
+				break;
+			case 83:
+				instructionLetter = "s";
+				instructionCells = "2, 3, and 4";
+				break;
+			case 84:
+				instructionLetter = "t";
+				instructionCells = "2, 3, 4, and 5";
+				break;
+			case 85:
+				instructionLetter = "u";
+				instructionCells = "1, 3, and 6";
+				break;
+			case 86:
+				instructionLetter = "v";
+				instructionCells = "1, 2, 3, and 6";
+				break;
+			case 87:
+				instructionLetter = "w";
+				instructionCells = "2, 4, 5, and 6";
+				break;
+			case 88:
+				instructionLetter = "x";
+				instructionCells = "1, 3, 4, and 6";
+				break;
+			case 89:
+				instructionLetter = "y";
+				instructionCells = "1, 3, 4, 5, and 6";
+				break;
+			case 90:
+				instructionLetter = "z";
+				instructionCells = "1, 3, 5, and 6";
+				break;
+			default:
+				instructionLetter = "";
+				instructionCells =  "";
+				break;
+		}
+		var fullInstruction = instructionStart + instructionCells + instructionMiddle + instructionLetter;
+		return fullInstruction;
+		
 	};
 	
 	function playScribbleAudio(charCode) {
