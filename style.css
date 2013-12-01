@@ -46,7 +46,7 @@ h1{
 
 #form {
     position:fixed;
-    left:-300px;
+    left:-200px;
 }
 
 #menuButton {
@@ -54,6 +54,23 @@ h1{
 }
 
 #firstLetter, #secondLetter, #thirdLetter, #fourthLetter {
-    border-bottom: groove;
+    border: solid;
+    border-width: 5px;
+    border-color: black;
     display:none;
+}
+
+#buttonSet1, #buttonSet2 {
+    float: left;
+    left: 50%;
+    display: none;
+}
+
+#allLetterButtons {
+    position: relative;
+    left: 50%;
+    margin-left: -321px;
+    height: 974px;
+    width: 642px;
+    display: none;
 }
