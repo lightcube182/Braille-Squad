@@ -36,6 +36,8 @@ h1{
 .infoBar {
     color:green;
     font-size:30px;
+    text-align: center;
+    clear: both;
     display:none;
 }
 
@@ -69,8 +71,8 @@ h1{
 #allLetterButtons {
     position: relative;
     left: 50%;
-    margin-left: -321px;
-    height: 974px;
-    width: 642px;
+    margin-left: -362px;
+    height: 1094px;
+    width: 724px;
     display: none;
 }

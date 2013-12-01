@@ -200,7 +200,7 @@ $(document).ready(function(){
 		var correctNum = Math.floor((Math.random()*4));
 		correctAnswer = randLetterKeys[correctNum];
 		instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-		$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+		$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 		$("div.infoBar").text(instruction);
 		generateLetter(randLetterKeys[0], "#firstLetter");
 		generateLetter(randLetterKeys[1], "#secondLetter");
@@ -210,7 +210,7 @@ $(document).ready(function(){
 		matchingInterval = setInterval (function() {
 			if (startCaretPosition != doGetCaretPosition(document.getElementById('textbox'))) {
 				startCaretPosition = doGetCaretPosition(document.getElementById('textbox'));
-				if (startCaretPosition == 0) {
+				if (startCaretPosition == 1) {
 					if (randLetterKeys[0] == correctAnswer) {
 						$("div.infoBar").text("That's right!!!");
 						randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
@@ -220,26 +220,7 @@ $(document).ready(function(){
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
-						$("div.infoBar").append("<br>" + instruction);
-						generateLetter(randLetterKeys[0], "#firstLetter");
-						generateLetter(randLetterKeys[1], "#secondLetter");
-						generateLetter(randLetterKeys[2], "#thirdLetter");
-						generateLetter(randLetterKeys[3], "#fourthLetter");
-					} else {
-						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-					}
-				} else if (startCaretPosition == 2) {
-					if (randLetterKeys[1] == correctAnswer) {
-						$("div.infoBar").text("That's right!!!");
-						randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
-						randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
-						randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
-						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
-						var correctNum = Math.floor((Math.random()*4));
-						correctAnswer = randLetterKeys[correctNum];
-						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 						$("div.infoBar").append("<br>" + instruction);
 						generateLetter(randLetterKeys[0], "#firstLetter");
 						generateLetter(randLetterKeys[1], "#secondLetter");
@@ -249,6 +230,25 @@ $(document).ready(function(){
 						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
 					}
 				} else if (startCaretPosition == 4) {
+					if (randLetterKeys[1] == correctAnswer) {
+						$("div.infoBar").text("That's right!!!");
+						randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
+						randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
+						randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
+						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+						var correctNum = Math.floor((Math.random()*4));
+						correctAnswer = randLetterKeys[correctNum];
+						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
+						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
+						$("div.infoBar").append("<br>" + instruction);
+						generateLetter(randLetterKeys[0], "#firstLetter");
+						generateLetter(randLetterKeys[1], "#secondLetter");
+						generateLetter(randLetterKeys[2], "#thirdLetter");
+						generateLetter(randLetterKeys[3], "#fourthLetter");
+					} else {
+						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+					}
+				} else if (startCaretPosition == 7) {
 					if (randLetterKeys[2] == correctAnswer) {
 						$("div.infoBar").text("That's right!!!");
 						randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
@@ -258,7 +258,7 @@ $(document).ready(function(){
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());		
+						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");		
 						$("div.infoBar").append("<br>" + instruction);
 						generateLetter(randLetterKeys[0], "#firstLetter");
 						generateLetter(randLetterKeys[1], "#secondLetter");
@@ -267,7 +267,7 @@ $(document).ready(function(){
 					} else {
 						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
 					}
-				} else if (startCaretPosition == 6) {
+				} else if (startCaretPosition == 10) {
 					if (randLetterKeys[3] == correctAnswer) {
 						$("div.infoBar").text("That's right!!!");
 						randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
@@ -277,7 +277,7 @@ $(document).ready(function(){
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 						$("div.infoBar").append("<br>" + instruction);
 						generateLetter(randLetterKeys[0], "#firstLetter");
 						generateLetter(randLetterKeys[1], "#secondLetter");
@@ -302,7 +302,7 @@ $(document).ready(function(){
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 			$("div.infoBar").append("<br>" + instruction);
 			generateLetter(randLetterKeys[0], "#firstLetter");
 			generateLetter(randLetterKeys[1], "#secondLetter");
@@ -324,7 +324,7 @@ $(document).ready(function(){
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 			$("div.infoBar").append("<br>" + instruction);
 			generateLetter(randLetterKeys[0], "#firstLetter");
 			generateLetter(randLetterKeys[1], "#secondLetter");
@@ -347,7 +347,7 @@ $(document).ready(function(){
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 			$("div.infoBar").append("<br>" + instruction);
 			generateLetter(randLetterKeys[0], "#firstLetter");
 			generateLetter(randLetterKeys[1], "#secondLetter");
@@ -370,7 +370,7 @@ $(document).ready(function(){
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
-			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + " " + String.fromCharCode(randLetterKeys[3]).toLowerCase());
+			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 			$("div.infoBar").append("<br>" + instruction);
 			generateLetter(randLetterKeys[0], "#firstLetter");
 			generateLetter(randLetterKeys[1], "#secondLetter");
