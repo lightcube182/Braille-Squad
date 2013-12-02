@@ -4,23 +4,36 @@ h1{
     font-size:60px;
 }
 
-#menu{
+#menu {
+    text-align: center;
+    margin-top:300px;
+}
+
+#menuMenu {
+    text-align: center;
+}
+#scribble, #matching, #typing, #training, #menuButton {
     font-family: helvetica;
-    text-align:center;
     color:purple;
     font-size:40px;
-    margin-top:300px;
+    border: solid;
+    border-color: green;
+}
+
+#scribble, #typing, #training {
+    height: auto;
+    width: auto;
 }
 
 #labels{
     display:none;
 }
 
-.button{
+button {
     display:inline-block;
 }
 
-.button:hover{
+button:hover{
     color:blue;
     cursor:pointer;
 }
@@ -53,6 +66,7 @@ h1{
 
 #menuButton {
     display:none;
+    text-align: center;
 }
 
 #firstLetter, #secondLetter, #thirdLetter, #fourthLetter {
@@ -71,8 +85,8 @@ h1{
 #allLetterButtons {
     position: relative;
     left: 50%;
-    margin-left: -362px;
-    height: 1094px;
-    width: 724px;
+    margin-left: -370px;
+    height: auto;
+    width: auto;
     display: none;
 }

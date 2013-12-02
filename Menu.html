@@ -13,149 +13,159 @@
     <div role="application">
     <h1 role="heading" tabindex="1">BRAILLE SQUAD!!!</h1>
     <div id="menu">
-        <div id="scribble" class="button" role="button" aria-pressed="false" aria-labelledby="scribble_label" tabindex="0">
-            Scribble
-            <div class="cellRow">
-		<div class="cell cell1">
-		    <img src="cell.png" alt="braille cell" height="300" width="300">
-		</div>
-		<div class="cell cell4">
-		    <img src="cell.png" alt="braille cell" height="300" width="300">
-		</div>
-	    </div>
-	    <div class="cellRow">
-		<div class="cell cell2">
-		    <img src="cell.png" alt="braille cell" height="300" width="300">
-		</div>
-		<div class="cell cell5">
-		    <img src="cell.png" alt="braille cell" height="300" width="300">
-		</div>
-	    </div>
-	    <div class="cellRow">
-		<div class="cell cell3">
-		    <img src="cell.png" alt="braille cell" height="300" width="300">
-		</div>
-		<div class="cell cell6">
-		    <img src="cell.png" alt="braille cell" height="300" width="300">
-		</div>
-	    </div>
-            <div class="infoBar"></div>
-        </div>
-        <div id="matching" class="button" role="button" aria-pressed="false" aria-labelledby="matching_label" tabindex="1">Matching</div>
-        <div id="allLetterButtons">
-            <div id="buttonSet1">
-                <div id="firstLetter" class="button" role="button" aria-pressed="false" aria-labelledby="letter_label" tabindex="1">
-                    <div class="cellRow">
-                        <div class="cell cell1">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell4">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
+        <button type="button" id="scribble" class="button" name="Scribble" tabindex="1">
+            Scribble    
+	    <div aria-hidden="true">
+                <div class="cellRow">
+                    <div class="cell cell1">
+                        <img src="cell.png" alt="braille cell" height="300" width="300">
                     </div>
-                    <div class="cellRow">
-                        <div class="cell cell2">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell5">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                    </div>
-                    <div class="cellRow">
-                        <div class="cell cell3">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell6">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
+                    <div class="cell cell4">
+                        <img src="cell.png" alt="braille cell" height="300" width="300">
                     </div>
                 </div>
-                <div id="secondLetter" class="button" role="button" aria-pressed="false" aria-labelledby="letter_label" tabindex="0">
-                    <div class="cellRow">
-                        <div class="cell cell1">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell4">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
+                <div class="cellRow">
+                    <div class="cell cell2">
+                        <img src="cell.png" alt="braille cell" height="300" width="300">
                     </div>
-                    <div class="cellRow">
-                        <div class="cell cell2">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell5">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
+                    <div class="cell cell5">
+                        <img src="cell.png" alt="braille cell" height="300" width="300">
                     </div>
-                    <div class="cellRow">
-                        <div class="cell cell3">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell6">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
+                </div>
+                <div class="cellRow">
+                    <div class="cell cell3">
+                        <img src="cell.png" alt="braille cell" height="300" width="300">
+                    </div>
+                    <div class="cell cell6">
+                        <img src="cell.png" alt="braille cell" height="300" width="300">
                     </div>
                 </div>
             </div>
+            <div class="infoBar"></div>
+        </button>
+        <button type="button" id="matching" class="button" name="Matching" tabindex="1">Matching</button>
+        <div id="allLetterButtons">
+            <div id="buttonSet1">
+                <button type="button" id="firstLetter" class="button" name="Letter" tabindex="1">
+                    <div aria-hidden="true">
+                        <div class="cellRow">
+                            <div class="cell cell1">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell4">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                        <div class="cellRow">
+                            <div class="cell cell2">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell5">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                        <div class="cellRow">
+                            <div class="cell cell3">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell6">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                <button type="button" id="secondLetter" class="button" name="Letter" tabindex="1">
+                    <div aria-hidden="true">
+                        <div class="cellRow">
+                            <div class="cell cell1">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell4">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                        <div class="cellRow">
+                            <div class="cell cell2">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell5">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                        <div class="cellRow">
+                            <div class="cell cell3">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell6">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </div>
             <div id="buttonSet2">
-                <div id="thirdLetter" class="button" role="button" aria-pressed="false" aria-labelledby="letter_label" tabindex="0">
-                    <div class="cellRow">
-                        <div class="cell cell1">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
+                <button type="button" id="thirdLetter" class="button" name="Letter" tabindex="1">
+                    <div aria-hidden="true">
+                        <div class="cellRow">
+                            <div class="cell cell1">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell4">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
                         </div>
-                        <div class="cell cell4">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
+                        <div class="cellRow">
+                            <div class="cell cell2">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell5">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cellRow">
-                        <div class="cell cell2">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell5">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                    </div>
-                    <div class="cellRow">
-                        <div class="cell cell3">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell6">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                    </div>
-                </div>
-                <div id="fourthLetter" class="button" role="button" aria-pressed="false" aria-labelledby="letter_label" tabindex="1">
-                    <div class="cellRow">
-                        <div class="cell cell1">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell4">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
+                        <div class="cellRow">
+                            <div class="cell cell3">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell6">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
                         </div>
                     </div>
-                    <div class="cellRow">
-                        <div class="cell cell2">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
+                </button>
+                <button type="button" id="fourthLetter" class="button" name="Letter" tabindex="1">
+                    <div aria-hidden="true">
+                        <div class="cellRow">
+                            <div class="cell cell1">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell4">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
                         </div>
-                        <div class="cell cell5">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
+                        <div class="cellRow">
+                            <div class="cell cell2">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell5">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                        </div>
+                        <div class="cellRow">
+                            <div class="cell cell3">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
+                            <div class="cell cell6">
+                                <img src="cell.png" alt="braille cell" height="170" width="170">
+                            </div>
                         </div>
                     </div>
-                    <div class="cellRow">
-                        <div class="cell cell3">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                        <div class="cell cell6">
-                            <img src="cell.png" alt="braille cell" height="170" width="170">
-                        </div>
-                    </div>
-                </div>
+                </button>
             </div>
         </div>
         <div class="infoBar" id="matchingInfoBar"></div>
 
 
-        <div id="typing" class="button" role="button" aria-pressed="false" aria-labelledby="typing_label" tabindex="1">
+        <button type="button" id="typing" class="button" name="Typing" tabindex="1">
             Typing
             <div class="cellRow">
 		<div class="cell cell1">
@@ -182,11 +192,11 @@
 		</div>
 	    </div>
             <div class="infoBar"></div>
-        </div>
+        </button>
 		
-	    <div id="training" class="button" role="button" aria-pressed="false" aria-labelledby="training_label" tabindex="1">
+	<button type="button" id="training" class="button" name="Training" tabindex="1">
             Training
-        <div class="cellRow">
+            <div class="cellRow">
 		<div class="cell cell1">
 		    <img src="cell.png" alt="braille cell" height="300" width="300">
 		</div>
@@ -211,9 +221,11 @@
 		</div>
 	    </div>
             <div class="infoBar"></div>
-        </div>
+        </button>
 		
-        <div id="menuButton" class="button" role="button" aria-presed="false" aria-labelledby="menu_label" tabindex="1">Menu</div>
+        <div id="menuMenu">
+            <button type="button" id="menuButton" class="button" name="Menu" tabindex="1">Menu</button>
+        </div>
     </div>
     <div id="labels">
         <p id="scribble_label">Scribble</p>
