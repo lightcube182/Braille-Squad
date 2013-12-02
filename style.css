@@ -55,6 +55,11 @@ h1{
     display:none;
 }
 
+#easyTyping, #hardTyping{
+    margin: 0 auto;
+    display:none;
+}
+
 #firstLetter, #secondLetter, #thirdLetter, #fourthLetter {
     border: solid;
     border-width: 5px;
