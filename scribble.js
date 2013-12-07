@@ -127,7 +127,7 @@ $(document).ready(function(){
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
-	    $("#textbox").focus();
+		$("#textbox").focus();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
@@ -235,7 +235,7 @@ $(document).ready(function(){
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
-	    $("#textbox").focus();
+		$("#textbox").focus();
 		$("div.infoBar").show();
 		randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
 		randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
@@ -332,7 +332,7 @@ $(document).ready(function(){
 					}
 				}
 			}
-		}, 500);
+		}, 50);
 	};
 	
 	$("#firstLetter").click(function(e){
