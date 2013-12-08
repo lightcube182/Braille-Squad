@@ -91,7 +91,15 @@ $(document).ready(function(){
 			player.play();
 			$("#textbox").focus();
 		}
-	});	
+	});
+	
+	$("#easyTyping").click(function(e){	
+		typingGameEasy();
+	});
+	
+	$("#hardTyping").click(function(e){	
+		typingGameHard();
+	});
 	
 	var instruction;	
 	$("#textbox").keyup(function(e){
@@ -521,7 +529,8 @@ $(document).ready(function(){
 	});
 	
 	function typingGame(){
-		$("#typing .cellRow").show();
+		$("#easyTyping").show();
+		$("#hardTyping").show();
 		$("#matching").hide();
 		$("#scribble").hide();
 		$("#training").hide();
@@ -529,6 +538,39 @@ $(document).ready(function(){
 		$("h1").hide();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
+		$("#menu").css("margin-top", "0");
+	};
+	
+	function typingGameEasy(){
+		$("#typing .cellRow").show();
+		$("#menu").css("margin-top", "0");
+		$("#textbox").focus();
+		var randLetterKey = Math.floor((Math.random()*26) + 65);
+		instruction = "Type the letter " + String.fromCharCode(randLetterKey);
+		$("div.infoBar").text(instruction);
+		generateLetter(randLetterKey, "");
+		$("#textbox").val(String.fromCharCode(randLetterKey));
+		$("#textbox").focus();
+		$(document).keydown(function(e) {
+			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
+				if (e.which == randLetterKey) {
+					$("div.infoBar").text("Congratulations, that's right!!!");
+					randLetterKey = Math.floor((Math.random()*26) + 65);
+					instruction = "Type the letter " + String.fromCharCode(randLetterKey);
+					$("div.infoBar").append("<br>" + instruction);
+				} else if (e.which >= 65 && e.which <= 90) {
+					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+				} else {
+					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
+				}
+				generateLetter(randLetterKey, "");
+			}
+		});
+			
+	};
+	
+	function typingGameHard(){
+		$("#typing .cellRow").show();
 		$("#menu").css("margin-top", "0");
 		$("#textbox").focus();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
@@ -541,6 +583,7 @@ $(document).ready(function(){
 		stopTime = instructionEnd;
 		player.currentTime = startTime;
 		player.play();
+		$("#textbox").val(String.fromCharCode(randLetterKey));
 		$(document).keydown(function(e) {
 			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
 				if (e.which == randLetterKey) {
@@ -566,6 +609,7 @@ $(document).ready(function(){
 				generateLetter(randLetterKey, "");
 			}
 		});
+			
 	};
 	
 	function generateLetter(charCode, identifier) {
