@@ -115,6 +115,8 @@ $(document).ready(function(){
 		$("#fourthLetter").hide();
 		$("#allLetterButtons").hide();
 		$("#menuButton").hide();
+		$("#menuButton").css("float", "none");
+		$("#buttonToggle").hide();
 		$("#textbox").val("");
 		$(document).off("keydown");
 	});
@@ -173,7 +175,7 @@ $(document).ready(function(){
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
-	    $("#textbox").focus();
+		$("#textbox").focus();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
 		startTime = 5.75;
@@ -220,6 +222,70 @@ $(document).ready(function(){
 			range.select();
 		}
 	}
+	
+	function dupCheck() {
+		var letterMatch = false;
+		for (ind = 0; ind < 4; ind++) {
+			if (ind == 0) {
+				if (randLetterKeys[1] == randLetterKeys[ind]) {
+					randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[2] == randLetterKeys[ind]) {
+					randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[3] == randLetterKeys[ind]) {
+					randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+			} else if (ind == 1) {
+				if (randLetterKeys[0] == randLetterKeys[ind]) {
+					randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[2] == randLetterKeys[ind]) {
+					randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[3] == randLetterKeys[ind]) {
+					randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				
+			} else if (ind == 2) {
+				if (randLetterKeys[0] == randLetterKeys[ind]) {
+					randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[1] == randLetterKeys[ind]) {
+					randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[3] == randLetterKeys[ind]) {
+					randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+			} else if (ind == 3) {
+				if (randLetterKeys[0] == randLetterKeys[ind]) {
+					randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[1] == randLetterKeys[ind]) {
+					randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+				if (randLetterKeys[2] == randLetterKeys[ind]) {
+					randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
+					letterMatch = true;
+				}
+			}
+			if (letterMatch) {
+				letterMatch = false;
+				ind = 0;
+			}
+		}
+	}
 
 	function matchingGame () {
 		$("#firstLetter, #secondLetter, #thirdLetter, #fourthLetter").css("display", "block");
@@ -234,13 +300,16 @@ $(document).ready(function(){
 		$("#training").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
+		$("#menuButton").css("float", "left");
 		$("#menuButton").show();
+		$("#buttonToggle").show();
 		$("#textbox").focus();
 		$("div.infoBar").show();
 		randLetterKeys[0] = Math.floor((Math.random()*26) + 65);
 		randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 		randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 		randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+		dupCheck();
 		var correctNum = Math.floor((Math.random()*4));
 		correctAnswer = randLetterKeys[correctNum];
 		instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -261,6 +330,7 @@ $(document).ready(function(){
 						randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -280,6 +350,7 @@ $(document).ready(function(){
 						randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -299,6 +370,7 @@ $(document).ready(function(){
 						randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -318,6 +390,7 @@ $(document).ready(function(){
 						randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -343,6 +416,7 @@ $(document).ready(function(){
 			randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+			dupCheck();
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -365,6 +439,7 @@ $(document).ready(function(){
 			randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+			dupCheck();
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -388,6 +463,7 @@ $(document).ready(function(){
 			randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+			dupCheck();
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -411,6 +487,7 @@ $(document).ready(function(){
 			randLetterKeys[1] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
+			dupCheck();
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -424,6 +501,20 @@ $(document).ready(function(){
 			$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
 		}
 
+	});
+	
+	$("#buttonToggle").click(function(e){
+		if ($("#firstLetter").attr("aria-hidden") == "true") {
+			$("#firstLetter").attr("aria-hidden", "false");
+			$("#secondLetter").attr("aria-hidden", "false");
+			$("#thirdLetter").attr("aria-hidden", "false");
+			$("#fourthLetter").attr("aria-hidden", "false");
+		} else {
+			$("#firstLetter").attr("aria-hidden", "true");
+			$("#secondLetter").attr("aria-hidden", "true");
+			$("#thirdLetter").attr("aria-hidden", "true");
+			$("#fourthLetter").attr("aria-hidden", "true");
+		}
 	});
 	
 	function typingGame(){

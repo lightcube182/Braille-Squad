@@ -13,7 +13,7 @@ h1 {
     text-align: center;
 }
 
-#scribble, #matching, #typing, #training, #menuButton {
+#scribble, #matching, #typing, #training, #menuButton, #buttonToggle {
     font-family: helvetica;
     color:purple;
     font-size:40px;
@@ -68,6 +68,12 @@ button:hover {
 #menuButton {
     display:none;
     text-align: center;
+}
+
+#buttonToggle {
+    display: none;
+    text-align: right;
+    float: right;
 }
 
 #firstLetter, #secondLetter, #thirdLetter, #fourthLetter {
