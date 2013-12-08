@@ -1,11 +1,9 @@
 CACHE MANIFEST
-# Cache manifest version 0.0.2
- 
-cell.png
-jquery-2.0.3.min.js
-Menu.html
-scribble.js
-style.css
+# Cache manifest version 0.0.6
 
-#NETWORK
-http://www.cs.unc.edu/~ljboyer/combinedAudio.mp3
+CACHE:
+images/cell.png
+js/jquery-2.0.3.min.js
+js/scribble.js
+css/style.css
+music/combinedAudio.mp3

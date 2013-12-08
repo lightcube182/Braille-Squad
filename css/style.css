@@ -92,8 +92,8 @@ button:hover {
 #allLetterButtons {
     position: relative;
     left: 50%;
-    margin-left: -370px;
+    margin-left: -385px;
     height: 1068px;
-    width: 740px;
+    width: 770px;
     display: none;
 }

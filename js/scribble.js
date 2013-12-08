@@ -14,23 +14,24 @@ $(document).ready(function(){
 	var player = document.getElementById("aplayer");
 	var initLoad = true;
 	player.addEventListener('timeupdate',function() {
-	if( stopTime <= player.currentTime) {
-		if( initLoad == true) {
-			player.pause();
-			initLoad = false;
-			nextGame();
-		}
-		else {
-			if( audioOnDeck == false) {
+		if( stopTime <= player.currentTime) {
+			if( initLoad == true) {
 				player.pause();
+				initLoad = false;
+				alert("Right before nextGame()");
+				nextGame();
 			}
 			else {
-				audioOnDeck = false;
-				player.currentTime = instructionStart;
-				stopTime = instructionEnd;
+				if( audioOnDeck == false) {
+					player.pause();
+				}
+				else {
+					audioOnDeck = false;
+					player.currentTime = instructionStart;
+					stopTime = instructionEnd;
+				}
 			}
 		}
-	}
 	});
 	player.addEventListener('loadedmetadata',function(){
 		loadedData = true;
@@ -46,7 +47,9 @@ $(document).ready(function(){
 			nextGame = scribbleGame
 			startTime = 0;
 			stopTime = 0.12;
+			alert("Right before player.play");
 			player.play();
+			alert("Right after player.play");
 			$("#textbox").focus();
 		}
 	});
