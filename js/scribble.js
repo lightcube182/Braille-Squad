@@ -18,7 +18,6 @@ $(document).ready(function(){
 			if( initLoad == true) {
 				player.pause();
 				initLoad = false;
-				alert("Right before nextGame()");
 				nextGame();
 			}
 			else {
@@ -47,9 +46,7 @@ $(document).ready(function(){
 			nextGame = scribbleGame
 			startTime = 0;
 			stopTime = 0.12;
-			alert("Right before player.play");
 			player.play();
-			alert("Right after player.play");
 			$("#textbox").focus();
 		}
 	});
