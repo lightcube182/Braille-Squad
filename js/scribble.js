@@ -327,17 +327,11 @@ $(document).ready(function(){
 		randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 		randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 		dupCheck();
-		var previousCorrect = 0;
 		var correctNum = Math.floor((Math.random()*4));
 		correctAnswer = randLetterKeys[correctNum];
 		instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 		$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
 		$("div.infoBar").text(instruction);
-		setMatchingInstruction(correctAnswer);
-		startTime = instructionStart;
-		stopTime = instructionEnd;
-		player.currentTime = startTime;
-		player.play();
 		generateLetter(randLetterKeys[0], "#firstLetter");
 		generateLetter(randLetterKeys[1], "#secondLetter");
 		generateLetter(randLetterKeys[2], "#thirdLetter");
@@ -355,7 +349,6 @@ $(document).ready(function(){
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
-						previousCorrect = correctAnswer;
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
@@ -364,14 +357,8 @@ $(document).ready(function(){
 						generateLetter(randLetterKeys[1], "#secondLetter");
 						generateLetter(randLetterKeys[2], "#thirdLetter");
 						generateLetter(randLetterKeys[3], "#fourthLetter");
-						audioOnDeck = true;
-						setMatchingInstruction(correctAnswer);
-						playScribbleAudio(previousCorrect);
 					} else {
 						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-						player.currentTime = 172.368;
-						stopTime = 175.738;
-						player.play();
 					}
 				} else if (startCaretPosition == 4) {
 					if (randLetterKeys[1] == correctAnswer) {
@@ -382,7 +369,6 @@ $(document).ready(function(){
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
-						previousCorrect = correctAnswer;
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
@@ -391,14 +377,8 @@ $(document).ready(function(){
 						generateLetter(randLetterKeys[1], "#secondLetter");
 						generateLetter(randLetterKeys[2], "#thirdLetter");
 						generateLetter(randLetterKeys[3], "#fourthLetter");
-						audioOnDeck = true;
-						setMatchingInstruction(correctAnswer);
-						playScribbleAudio(previousCorrect);
 					} else {
 						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-						player.currentTime = 172.368;
-						stopTime = 175.738;
-						player.play();
 					}
 				} else if (startCaretPosition == 7) {
 					if (randLetterKeys[2] == correctAnswer) {
@@ -409,7 +389,6 @@ $(document).ready(function(){
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
-						previousCorrect = correctAnswer;
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");		
@@ -418,14 +397,8 @@ $(document).ready(function(){
 						generateLetter(randLetterKeys[1], "#secondLetter");
 						generateLetter(randLetterKeys[2], "#thirdLetter");
 						generateLetter(randLetterKeys[3], "#fourthLetter");
-						audioOnDeck = true;
-						setMatchingInstruction(correctAnswer);
-						playScribbleAudio(previousCorrect);
 					} else {
 						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-						player.currentTime = 172.368;
-						stopTime = 175.738;
-						player.play();
 					}
 				} else if (startCaretPosition == 10) {
 					if (randLetterKeys[3] == correctAnswer) {
@@ -436,7 +409,6 @@ $(document).ready(function(){
 						randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 						dupCheck();
 						var correctNum = Math.floor((Math.random()*4));
-						previousCorrect = correctAnswer;
 						correctAnswer = randLetterKeys[correctNum];
 						instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 						$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
@@ -445,14 +417,8 @@ $(document).ready(function(){
 						generateLetter(randLetterKeys[1], "#secondLetter");
 						generateLetter(randLetterKeys[2], "#thirdLetter");
 						generateLetter(randLetterKeys[3], "#fourthLetter");
-						audioOnDeck = true;
-						setMatchingInstruction(correctAnswer);
-						playScribbleAudio(previousCorrect);
 					} else {
 						$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-						player.currentTime = 172.368;
-						stopTime = 175.738;
-						player.play();
 					}
 				}
 			}
@@ -469,7 +435,6 @@ $(document).ready(function(){
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 			dupCheck();
 			var correctNum = Math.floor((Math.random()*4));
-			previousCorrect = correctAnswer;
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
@@ -478,14 +443,8 @@ $(document).ready(function(){
 			generateLetter(randLetterKeys[1], "#secondLetter");
 			generateLetter(randLetterKeys[2], "#thirdLetter");
 			generateLetter(randLetterKeys[3], "#fourthLetter");
-			audioOnDeck = true;
-			setMatchingInstruction(correctAnswer);
-			playScribbleAudio(previousCorrect);
 		} else {
 			$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-			player.currentTime = 172.368;
-			stopTime = 175.738;
-			player.play();
 		}
 	});
 	
@@ -499,7 +458,6 @@ $(document).ready(function(){
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 			dupCheck();
 			var correctNum = Math.floor((Math.random()*4));
-			previousCorrect = correctAnswer;
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
@@ -508,14 +466,8 @@ $(document).ready(function(){
 			generateLetter(randLetterKeys[1], "#secondLetter");
 			generateLetter(randLetterKeys[2], "#thirdLetter");
 			generateLetter(randLetterKeys[3], "#fourthLetter");
-			audioOnDeck = true;
-			setMatchingInstruction(correctAnswer);
-			playScribbleAudio(previousCorrect);
 		}else {
 			$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-			player.currentTime = 172.368;
-			stopTime = 175.738;
-			player.play();
 		}
 
 	});
@@ -529,8 +481,7 @@ $(document).ready(function(){
 			randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 			dupCheck();
-			var correctNum = Math.floor((Math.random()*4));			
-			previousCorrect = correctAnswer;
+			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
 			$("#textbox").val(String.fromCharCode(randLetterKeys[0]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[1]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[2]).toLowerCase() + "  " + String.fromCharCode(randLetterKeys[3]).toLowerCase() + " ");
@@ -539,14 +490,8 @@ $(document).ready(function(){
 			generateLetter(randLetterKeys[1], "#secondLetter");
 			generateLetter(randLetterKeys[2], "#thirdLetter");
 			generateLetter(randLetterKeys[3], "#fourthLetter");
-			audioOnDeck = true;
-			setMatchingInstruction(correctAnswer);
-			playScribbleAudio(previousCorrect);
 		}else {
 			$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-			player.currentTime = 172.368;
-			stopTime = 175.738;
-			player.play();
 		}
 
 	});
@@ -560,7 +505,6 @@ $(document).ready(function(){
 			randLetterKeys[2] = Math.floor((Math.random()*26) + 65);
 			randLetterKeys[3] = Math.floor((Math.random()*26) + 65);
 			dupCheck();
-			previousCorrect = correctAnswer;
 			var correctNum = Math.floor((Math.random()*4));
 			correctAnswer = randLetterKeys[correctNum];
 			instruction = "Pick the letter " + String.fromCharCode(correctAnswer);
@@ -570,14 +514,8 @@ $(document).ready(function(){
 			generateLetter(randLetterKeys[1], "#secondLetter");
 			generateLetter(randLetterKeys[2], "#thirdLetter");
 			generateLetter(randLetterKeys[3], "#fourthLetter");
-			audioOnDeck = true;
-			setMatchingInstruction(correctAnswer);
-			playScribbleAudio(previousCorrect);
 		}else {
 			$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-			player.currentTime = 172.368;
-			stopTime = 175.738;
-			player.play();
 		}
 
 	});
@@ -1102,108 +1040,33 @@ $(document).ready(function(){
 	function playScribbleAudio(charCode) {
 		switch(charCode) {
 			case 65: //a
-				startTime = 176.852;
-				stopTime = 185.986;
-				break;
 			case 66: //b
-				startTime = 186.784;
-				stopTime = 196.728;
-				break;
 			case 67: //c
-				startTime = 197.607;
-				stopTime = 209.221;
-				break;
 			case 68: //d
-				startTime = 210.14;
-				stopTime = 216.169;
-				break;
 			case 69: //e
-				startTime = 217.242;
-				stopTime = 231.858;
-				break;
 			case 70: //f
-				startTime = 232.917;
-				stopTime = 244.401;
-				break;
 			case 71: //g
-				startTime = 245.478;
-				stopTime = 250.409;
-				break;
 			case 72: //h
-				startTime = 251.446;
-				stopTime = 260.685;
-				break;
 			case 73: //i
-				startTime = 261.666;
-				stopTime = 273.802;
-				break;
 			case 74: //j
-				startTime = 274.848;
-				stopTime = 281.478;
-				break;
 			case 75: //k
-				startTime = 282.589;
-				stopTime = 292.428;
-				break;
 			case 76: //l
-				startTime = 293.441;
-				stopTime = 304.742;
-				break;
 			case 77: //m
-				startTime = 305.662;
-				stopTime = 311.978;
-				break;
 			case 78: //n
-				startTime = 312.815;
-				stopTime = 325.412;
-				break;
 			case 79: //o
-				startTime = 326.481;
-				stopTime = 336.425;
-				break;
 			case 80: //p
-				startTime = 337.277;
-				stopTime = 358.104;
-				break;
 			case 81: //q
-				startTime = 359.165;
-				stopTime = 370.074;
-				break;
 			case 82: //r
-				startTime = 371.055;
-				stopTime = 383.243;
-				break;
 			case 83: //s
-				startTime = 384.391;
-				stopTime = 400.442;
-				break;
 			case 84: //t
-				startTime = 401.905;
-				stopTime = 409.004;
-				break;
 			case 85: //u
-				startTime = 410.163;
-				stopTime = 420.784;
-				break;
 			case 86: //v
-				startTime = 422.036;
-				stopTime = 432.764;
-				break;
 			case 87: //w
-				startTime = 433.826;
-				stopTime = 443.535;
-				break;
 			case 88: //x
-				startTime = 444.79;
-				stopTime = 456.561;
-				break;
 			case 89: //y
-				startTime = 457.66;
-				stopTime = 468.439;
-				break;
 			case 90: //z
-				startTime = 469.309;
-				stopTime = 482.881;
+				startTime = 0.25;
+				stopTime = 1.5;
 				break;
 			default:
 				startTime = 1.75;
@@ -1320,119 +1183,6 @@ $(document).ready(function(){
 			case 90: //z
 				instructionStart = 45.18;
 				instructionEnd = 46.434;
-				break;
-			default:
-				instructionStart = 0;
-				instructionEnd = 0;
-				break;
-		}
-	};
-	
-	function setMatchingInstruction(charCode) {
-		switch(charCode) {
-			case 65: //a
-				instructionStart = 46.799;
-				instructionEnd = 47.921;
-				break;
-			case 66: //b
-				instructionStart = 48.019;
-				instructionEnd = 49.116;
-				break;
-			case 67: //c
-				instructionStart = 49.19;
-				instructionEnd = 50.349;
-				break;
-			case 68: //d
-				instructionStart = 50.435;
-				instructionEnd = 51.483;
-				break;
-			case 69: //e
-				instructionStart = 51.594;
-				instructionEnd = 52.864;
-				break;
-			case 70: //f
-				instructionStart = 52.974;
-				instructionEnd = 54.109;
-				break;
-			case 71: //g
-				instructionStart = 54.195;
-				instructionEnd = 55.329;
-				break;
-			case 72: //h
-				instructionStart = 55.452;
-				instructionEnd = 56.685;
-				break;
-			case 73: //i
-				instructionStart = 56.796;
-				instructionEnd = 58.004;
-				break;
-			case 74: //j
-				instructionStart = 58.127;
-				instructionEnd = 59.298;
-				break;
-			case 75: //k
-				instructionStart = 59.409;
-				instructionEnd = 60.58;
-				break;
-			case 76: //l
-				instructionStart = 60.679;
-				instructionEnd = 61.825;
-				break;
-			case 77: //m
-				instructionStart = 61.936;
-				instructionEnd = 63.082;
-				break;
-			case 78: //n
-				instructionStart = 63.193;
-				instructionEnd = 64.414;
-				break;
-			case 79: //o
-				instructionStart = 64.524;
-				instructionEnd = 65.646;
-				break;
-			case 80: //p
-				instructionStart = 65.757;
-				instructionEnd = 66.891;
-				break;
-			case 81: //q
-				instructionStart = 67.027;
-				instructionEnd = 68.161;
-				break;
-			case 82: //r
-				instructionStart = 68.309;
-				instructionEnd = 69.443;
-				break;
-			case 83: //s
-				instructionStart = 69.579;
-				instructionEnd = 70.700;
-				break;
-			case 84: //t
-				instructionStart = 70.750;
-				instructionEnd = 71.882;
-				break;
-			case 85: //u
-				instructionStart = 71.957;
-				instructionEnd = 72.981;
-				break;
-			case 86: //v
-				instructionStart = 73.116;
-				instructionEnd = 74.189;
-				break;
-			case 87: //w
-				instructionStart = 74.299;
-				instructionEnd = 75.507;
-				break;
-			case 88: //x
-				instructionStart = 75.643;
-				instructionEnd = 76.839;
-				break;
-			case 89: //y
-				instructionStart = 76.925;
-				instructionEnd = 78.059;
-				break;
-			case 90: //z
-				instructionStart = 78.145;
-				instructionEnd = 79.034;
 				break;
 			default:
 				instructionStart = 0;
