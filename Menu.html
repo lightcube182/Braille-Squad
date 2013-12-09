@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Braille Squad Game!</title>
     <script src="js/jquery-2.0.3.min.js"></script>
+    <!-- main javascript file for the course-->
     <script src="js/scribble.js"></script>
     <link rel="stylesheet" type="text/ref" href="css/style.css">
 </head>
@@ -13,7 +14,9 @@
 <body>
     <div role="application">
     <h1 role="heading" tabindex="1">BRAILLE SQUAD!!!</h1>
+    <!--Menu div contains everything else, which is dynamically loaded in-->
     <div id="menu">
+	<!--Scribble button contains scribble game-->
         <button type="button" id="scribble" class="button" name="Scribble" tabindex="1">
             Scribble    
 	    <div aria-hidden="true">
@@ -44,8 +47,10 @@
             </div>
             <div class="infoBar"></div>
         </button>
+	<!--matching button initiates matching game-->
         <button type="button" id="matching" class="button" name="Matching" tabindex="1">Matching</button>
         <div id="allLetterButtons">
+	    <!--allLetterButtons contains matching game buttons-->
             <div id="buttonSet1">
                 <button type="button" id="firstLetter" class="button" name="Letter" tabindex="1" aria-hidden="false">
                     <div aria-hidden="true">
@@ -164,7 +169,7 @@
             </div>
         </div>
         <div class="infoBar" id="matchingInfoBar"></div>
-
+	<!--Easy typing button contains Easy typing game-->
         <button type="button" id="easyTyping" class="button" name="easyTyping" tabindex="1">
             Easy Typing
             <div class="cellRow">
@@ -192,8 +197,7 @@
 		</div>
 	    </div>
             <div class="infoBar"></div>
-        </button>
-	
+
         <button type="button" id="hardTyping" class="button" name="hardTyping" tabindex="1">
             Hard Typing
             <div class="cellRow">
@@ -253,7 +257,9 @@
         </button>
 		
         <div id="menuMenu">
+	    <!--menu button returns to main menu from games-->
             <button type="button" id="menuButton" class="button" name="Menu" tabindex="1">Menu</button>
+	    <!--buttonToggle toggles the ability of the user to select the on-screen options in the matching game-->
             <button type="button" id="buttonToggle" name="buttonToggle">Buttons On/Off</button>
         </div>
     </div>
@@ -266,8 +272,9 @@
         <p id="letter_label">Letter</p>
     </div>
     </div>
-    <div id="form" tabindex="0">
-      <input type="text" id="textbox" aria-readonly="true"/>
+    <div id="form">
+	<!--textbox is where focus is kept. it is positioned offscreen so it is invisible, but the text in the textbox is what is echoed on the braille display during the games.-->
+      <input type="text" id="textbox"/>
     </div>
 	<audio id="aplayer">
 		<source type="audio/mpeg" src="music/combinedAudio.mp3"></source>

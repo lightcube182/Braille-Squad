@@ -21,7 +21,7 @@ h1 {
     border-color: green;
 }
 
-#scribble, #typing, #training {
+#scribble, #typing, #matching, #training, #easyTyping, #hardTyping {
     height: auto;
     width: auto;
 }
