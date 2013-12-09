@@ -1008,33 +1008,108 @@ $(document).ready(function(){
 	function playScribbleAudio(charCode) {
 		switch(charCode) {
 			case 65: //a
+				startTime = 176.852;
+				stopTime = 185.986;
+				break;
 			case 66: //b
+				startTime = 186.784;
+				stopTime = 196.728;
+				break;
 			case 67: //c
+				startTime = 197.607;
+				stopTime = 209.221;
+				break;
 			case 68: //d
+				startTime = 210.14;
+				stopTime = 216.169;
+				break;
 			case 69: //e
+				startTime = 217.242;
+				stopTime = 231.858;
+				break;
 			case 70: //f
+				startTime = 232.917;
+				stopTime = 244.401;
+				break;
 			case 71: //g
+				startTime = 245.478;
+				stopTime = 250.409;
+				break;
 			case 72: //h
+				startTime = 251.446;
+				stopTime = 260.685;
+				break;
 			case 73: //i
+				startTime = 261.666;
+				stopTime = 273.802;
+				break;
 			case 74: //j
+				startTime = 274.848;
+				stopTime = 281.478;
+				break;
 			case 75: //k
+				startTime = 282.589;
+				stopTime = 292.428;
+				break;
 			case 76: //l
+				startTime = 293.441;
+				stopTime = 304.742;
+				break;
 			case 77: //m
+				startTime = 305.662;
+				stopTime = 311.978;
+				break;
 			case 78: //n
+				startTime = 312.815;
+				stopTime = 325.412;
+				break;
 			case 79: //o
+				startTime = 326.481;
+				stopTime = 336.425;
+				break;
 			case 80: //p
+				startTime = 337.277;
+				stopTime = 358.104;
+				break;
 			case 81: //q
+				startTime = 359.165;
+				stopTime = 370.074;
+				break;
 			case 82: //r
+				startTime = 371.055;
+				stopTime = 383.243;
+				break;
 			case 83: //s
+				startTime = 384.391;
+				stopTime = 400.442;
+				break;
 			case 84: //t
+				startTime = 401.905;
+				stopTime = 409.004;
+				break;
 			case 85: //u
+				startTime = 410.163;
+				stopTime = 420.784;
+				break;
 			case 86: //v
+				startTime = 422.036;
+				stopTime = 432.764;
+				break;
 			case 87: //w
+				startTime = 433.826;
+				stopTime = 443.535;
+				break;
 			case 88: //x
+				startTime = 444.79;
+				stopTime = 456.561;
+				break;
 			case 89: //y
+				startTime = 457.66;
+				stopTime = 468.439;
+				break;
 			case 90: //z
-				startTime = 0.25;
-				stopTime = 1.5;
+				startTime = 469.309;
+				stopTime = 482.881;
 				break;
 			default:
 				startTime = 1.75;
