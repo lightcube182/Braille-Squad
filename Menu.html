@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" manifest="brailleManifest.manifest">
+<html lang="en" manifest="cache.manifest">
 <head>
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,26 +19,26 @@
 	    <div aria-hidden="true">
                 <div class="cellRow">
                     <div class="cell cell1">
-                        <img src="images/cell.png" alt="braille cell" height="300" width="300">
+                        <img src="images/cell.png" alt="braille cell" height="340" width="340">
                     </div>
                     <div class="cell cell4">
-                        <img src="images/cell.png" alt="braille cell" height="300" width="300">
+                        <img src="images/cell.png" alt="braille cell" height="340" width="340">
                     </div>
                 </div>
                 <div class="cellRow">
                     <div class="cell cell2">
-                        <img src="images/cell.png" alt="braille cell" height="300" width="300">
+                        <img src="images/cell.png" alt="braille cell" height="340" width="340">
                     </div>
                     <div class="cell cell5">
-                        <img src="images/cell.png" alt="braille cell" height="300" width="300">
+                        <img src="images/cell.png" alt="braille cell" height="340" width="340">
                     </div>
                 </div>
                 <div class="cellRow">
                     <div class="cell cell3">
-                        <img src="images/cell.png" alt="braille cell" height="300" width="300">
+                        <img src="images/cell.png" alt="braille cell" height="340" width="340">
                     </div>
                     <div class="cell cell6">
-                        <img src="images/cell.png" alt="braille cell" height="300" width="300">
+                        <img src="images/cell.png" alt="braille cell" height="340" width="340">
                     </div>
                 </div>
             </div>
@@ -165,61 +165,88 @@
         </div>
         <div class="infoBar" id="matchingInfoBar"></div>
 
-        <button type="button" id="typing" class="button" name="Typing" tabindex="1">
-            Typing
-	    <div id = "easyTyping" class="button">Easy</div>
-	    <div id = "hardTyping" class="button">Hard</div>
+        <button type="button" id="easyTyping" class="button" name="easyTyping" tabindex="1">
+            Easy Typing
             <div class="cellRow">
 		<div class="cell cell1">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 		<div class="cell cell4">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 	    </div>
 	    <div class="cellRow">
 		<div class="cell cell2">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 		<div class="cell cell5">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 	    </div>
 	    <div class="cellRow">
 		<div class="cell cell3">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 		<div class="cell cell6">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 	    </div>
             <div class="infoBar"></div>
         </button>
-		
-	<button type="button" id="training" class="button" name="Training" tabindex="1">
-            Training
+	
+        <button type="button" id="hardTyping" class="button" name="hardTyping" tabindex="1">
+            Hard Typing
             <div class="cellRow">
 		<div class="cell cell1">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 		<div class="cell cell4">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 	    </div>
 	    <div class="cellRow">
 		<div class="cell cell2">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 		<div class="cell cell5">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 	    </div>
 	    <div class="cellRow">
 		<div class="cell cell3">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 		<div class="cell cell6">
-		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
+		</div>
+	    </div>
+            <div class="infoBar"></div>
+        </button>
+        
+	<button type="button" id="training" class="button" name="Training" tabindex="1">
+            Training
+            <div class="cellRow">
+		<div class="cell cell1">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
+		</div>
+		<div class="cell cell4">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
+		</div>
+	    </div>
+	    <div class="cellRow">
+		<div class="cell cell2">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
+		</div>
+		<div class="cell cell5">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
+		</div>
+	    </div>
+	    <div class="cellRow">
+		<div class="cell cell3">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
+		</div>
+		<div class="cell cell6">
+		    <img src="images/cell.png" alt="braille cell" height="340" width="340">
 		</div>
 	    </div>
             <div class="infoBar"></div>
