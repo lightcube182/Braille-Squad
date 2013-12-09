@@ -76,13 +76,13 @@ $(document).ready(function(){
 			$("#textbox").focus();
 		}
 	});
-
-	$("#typing").click(function(e){	
+	
+	$("#easyTyping").click(function(e){
 		if ( initLoad == false) {
-			typingGame();
+			typingGameEasy();
 		}
 		else {
-			nextGame = typingGame;
+			nextGame = typingGameEasy;
 			startTime = 0;
 			stopTime = 0.12;
 			player.play();
@@ -90,17 +90,22 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#easyTyping").click(function(e){	
-		typingGameEasy();
-	});
-	
-	$("#hardTyping").click(function(e){	
-		typingGameHard();
+	$("#hardTyping").click(function(e){
+		if ( initLoad == false) {
+			typingGameHard();
+		}
+		else {
+			nextGame = typingGameHard;
+			startTime = 0;
+			stopTime = 0.12;
+			player.play();
+			$("#textbox").focus();
+		}
 	});
 	
 	var instruction;	
 	$("#textbox").keyup(function(e){
-		if ($("#textbox").val().length>1 && ($("#matching").css("display") == "none")) {
+		if ($("#textbox").val().length>1 && ($("#matching").css("display") == "none") && ($("#typing").css("display") == "none")) {
 			var temp=$("#textbox").val();
 			$("#textbox").val(temp.substring((temp.length-1),(temp.length)));
 		}
@@ -110,7 +115,8 @@ $(document).ready(function(){
 		clearInterval(matchingInterval);
 		$(".cellRow").hide();
 		$("#matching").show();
-		$("#typing").show();
+		$("#easyTyping").show();
+		$("#hardTyping").show();
 		$("#scribble").show();
 		$("#training").show();
 		$("h1").show();
@@ -132,7 +138,8 @@ $(document).ready(function(){
 	function trainingGame() {
 		$("#training .cellRow").show();
 		$("#matching").hide();
-		$("#typing").hide();
+		$("#easyTyping").hide();
+		$("#hardTyping").hide();
 		$("#scribble").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
@@ -178,7 +185,8 @@ $(document).ready(function(){
 	function scribbleGame() {
 		$("#scribble .cellRow").show();
 		$("#matching").hide();
-		$("#typing").hide();
+		$("#easyTyping").hide();
+		$("#hardTyping").hide();
 		$("#training").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
@@ -191,7 +199,7 @@ $(document).ready(function(){
 		player.currentTime = startTime;
 		player.play();
 		$(document).keydown(function(e) {
-			if ($("#matching").css("display") == "none" && $("#typing").css("display") == "none") {
+			if ($("#matching").css("display") == "none" && ($("#easyTyping").css("display") == "none") && ($("#hardTyping").css("display") == "none")) {
 				$("div.infoBar").text("");
 				$("#textbox").focus();
 				generateLetter(e.which, "");
@@ -304,7 +312,8 @@ $(document).ready(function(){
 		$("#buttonSet1, #buttonSet2").css("display", "block");
 		$("#allLetterButtons").css("display", "block");
 		$("#scribble").hide();
-		$("#typing").hide();
+		$("#easyTyping").hide();
+		$("#hardTyping").hide();
 		$("#training").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
@@ -525,40 +534,53 @@ $(document).ready(function(){
 		}
 	});
 	
-	function typingGame(){
-		$("#easyTyping").show();
-		$("#hardTyping").show();
+	function typingGameEasy(){
 		$("#matching").hide();
 		$("#scribble").hide();
 		$("#training").hide();
+		$("#hardTyping").hide();
 		$("#menuButton").show();
 		$("h1").hide();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
 		$("#menu").css("margin-top", "0");
-	};
-	
-	function typingGameEasy(){
-		$("#typing .cellRow").show();
+		$("#easyTyping .cellRow").show();
 		$("#menu").css("margin-top", "0");
 		$("#textbox").focus();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
+		var prevLetterKey = 0;
 		instruction = "Type the letter " + String.fromCharCode(randLetterKey);
 		$("div.infoBar").text(instruction);
 		generateLetter(randLetterKey, "");
-		$("#textbox").val(String.fromCharCode(randLetterKey));
+		setTypingInstruction(randLetterKey);
+		$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
 		$("#textbox").focus();
-		$(document).keydown(function(e) {
-			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
+		startTime = instructionStart;
+		stopTime = instructionEnd;
+		player.currentTime = startTime;
+		player.play();
+		$(document).keyup(function(e) {
+			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#hardTyping").css("display") == "none") {
 				if (e.which == randLetterKey) {
 					$("div.infoBar").text("Congratulations, that's right!!!");
+					prevLetterKey = randLetterKey;
 					randLetterKey = Math.floor((Math.random()*26) + 65);
+					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
 					instruction = "Type the letter " + String.fromCharCode(randLetterKey);
 					$("div.infoBar").append("<br>" + instruction);
+					setTypingInstruction(randLetterKey);
+					audioOnDeck = true;
+					playScribbleAudio(prevLetterKey);
 				} else if (e.which >= 65 && e.which <= 90) {
 					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+					player.currentTime = 172.368;
+					stopTime = 175.738;
+					player.play();
 				} else {
 					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
+					player.currentTime = 1.75;
+					stopTime = 5.5;
+					player.play();
 				}
 				generateLetter(randLetterKey, "");
 			}
@@ -567,9 +589,19 @@ $(document).ready(function(){
 	};
 	
 	function typingGameHard(){
-		$("#typing .cellRow").show();
+		$("#matching").hide();
+		$("#scribble").hide();
+		$("#training").hide();
+		$("#easyTyping").hide();
+		$("#menuButton").show();
+		$("h1").hide();
+		$("div.infoBar").show();
+		$("#matchingInfoBar").hide();
+		$("#menu").css("margin-top", "0");
+		$("#hardTyping .cellRow").show();
 		$("#menu").css("margin-top", "0");
 		$("#textbox").focus();
+		$("#textbox").val("");
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
 		var prevLetterKey = 0;
 		instruction = "Type the letter " + String.fromCharCode(randLetterKey);
@@ -580,13 +612,13 @@ $(document).ready(function(){
 		stopTime = instructionEnd;
 		player.currentTime = startTime;
 		player.play();
-		$("#textbox").val(String.fromCharCode(randLetterKey));
-		$(document).keydown(function(e) {
-			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
+		$(document).keyup(function(e) {
+			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#easyTyping").css("display") == "none") {
 				if (e.which == randLetterKey) {
 					$("div.infoBar").text("Congratulations, that's right!!!");
 					prevLetterKey = randLetterKey;
 					randLetterKey = Math.floor((Math.random()*26) + 65);
+					$("#textbox").val("");
 					instruction = "Type the letter " + String.fromCharCode(randLetterKey);
 					setTypingInstruction(randLetterKey);
 					audioOnDeck = true;
