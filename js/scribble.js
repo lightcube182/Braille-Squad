@@ -41,6 +41,9 @@ $(document).ready(function(){
 		//nextGame();
 	});
 	
+	$("#focusButton").click(function(e) {
+		$("#textbox").focus();
+	});
 	//code for button presses (and loading in the audio)
 	$("#scribble").click(function(e){
 		if ( initLoad == false) {
@@ -109,7 +112,7 @@ $(document).ready(function(){
 	
 	var instruction;	
 	$("#textbox").keyup(function(e){
-		if ($("#textbox").val().length>1 && ($("#matching").css("display") == "none") && ($("#typing").css("display") == "none")) {
+		if ($("#textbox").val().length>1 && ($("#matching").css("display") == "none") && ($("#easyTyping").css("display") == "none") && ($("#hardTyping").css("display") == "none")) {
 			var temp=$("#textbox").val();
 			$("#textbox").val(temp.substring((temp.length-1),(temp.length)));
 		}
@@ -133,9 +136,10 @@ $(document).ready(function(){
 		$("#fourthLetter").hide();
 		$("#allLetterButtons").hide();
 		$("#menuButton").hide();
+		$("#focusButton").hide();
 		$("#easyTypingDiv").hide();
 		$("#hardTypingDiv").hide();
-		$("#menuButton").css("float", "none");
+		$("#menuButton").css("float", "right");
 		$("#buttonToggle").hide();
 		$("#textbox").val("");
 		$(document).off("keydown");
@@ -156,6 +160,7 @@ $(document).ready(function(){
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
+		$("#focusButton").show();
 		$("#textbox").focus();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
@@ -209,6 +214,7 @@ $(document).ready(function(){
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
 		$("#menuButton").show();
+		$("#focusButton").show();
 		$("#textbox").focus();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
@@ -361,8 +367,9 @@ $(document).ready(function(){
 		$("#training").hide();
 		$("h1").hide();
 		$("#menu").css("margin-top", "0");
-		$("#menuButton").css("float", "left");
+		$("#menuButton").css("float", "none");
 		$("#menuButton").show();
+		$("#focusButton").show();
 		$("#buttonToggle").show();
 		$("#textbox").focus();
 		$("div.infoBar").show();
@@ -653,6 +660,7 @@ $(document).ready(function(){
 		$("#training").hide();
 		$("#hardTyping").hide();
 		$("#menuButton").show();
+		$("#focusButton").show();
 		$("h1").hide();
 		$("div.infoBar").show();
 		$("#matchingInfoBar").hide();
@@ -687,11 +695,13 @@ $(document).ready(function(){
 					playScribbleAudio(prevLetterKey);
 				} else if (e.which >= 65 && e.which <= 90) {
 					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
 					player.currentTime = 172.368;
 					stopTime = 175.738;
 					player.play();
 				} else {
 					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
+					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
 					player.currentTime = 1.75;
 					stopTime = 5.5;
 					player.play();
@@ -713,6 +723,7 @@ $(document).ready(function(){
             $("#training").hide();
             $("#easyTyping").hide();
             $("#menuButton").show();
+	    $("#focusButton").show();
             $("h1").hide();
             $("div.infoBar").show();
             $("#matchingInfoBar").hide();
@@ -745,11 +756,13 @@ $(document).ready(function(){
                         $("div.infoBar").append("<br>" + instruction);
                     } else if (e.which >= 65 && e.which <= 90) {
                         $("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+			$("#textbox").val("");
                         player.currentTime = 172.368;
                         stopTime = 175.738;
                         player.play();
                     } else {
                         $("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
+			$("#textbox").val("");
                         player.currentTime = 1.75;
                         stopTime = 5.5;
                         player.play();
