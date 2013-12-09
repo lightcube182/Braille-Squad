@@ -90,7 +90,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#easyTyping").click(function(e){	
+	$("#easyTyping").click(function(e){
 		typingGameEasy();
 	});
 	
@@ -100,12 +100,12 @@ $(document).ready(function(){
 	
 	var instruction;	
 	$("#textbox").keyup(function(e){
-		if ($("#textbox").val().length>1 && ($("#matching").css("display") == "none")) {
+		if ($("#textbox").val().length>1 && ($("#matching").css("display") == "none") && ($("#typing").css("display") == "none")) {
 			var temp=$("#textbox").val();
 			$("#textbox").val(temp.substring((temp.length-1),(temp.length)));
 		}
 	});
-	
+
 	$("#menuButton").click(function() {
 		clearInterval(matchingInterval);
 		$(".cellRow").hide();
@@ -123,6 +123,8 @@ $(document).ready(function(){
 		$("#fourthLetter").hide();
 		$("#allLetterButtons").hide();
 		$("#menuButton").hide();
+		$("#easyTypingDiv").hide();
+		$("#hardTypingDiv").hide();
 		$("#menuButton").css("float", "none");
 		$("#buttonToggle").hide();
 		$("#textbox").val("");
@@ -526,8 +528,8 @@ $(document).ready(function(){
 	});
 	
 	function typingGame(){
-		$("#easyTyping").show();
-		$("#hardTyping").show();
+		$("#easyTypingDiv").show();
+		$("#hardTypingDiv").show();
 		$("#matching").hide();
 		$("#scribble").hide();
 		$("#training").hide();
@@ -539,25 +541,48 @@ $(document).ready(function(){
 	};
 	
 	function typingGameEasy(){
+		$("#hardTypingDiv").hide();
 		$("#typing .cellRow").show();
 		$("#menu").css("margin-top", "0");
 		$("#textbox").focus();
 		var randLetterKey = Math.floor((Math.random()*26) + 65);
+		var prevLetterKey = 0;
 		instruction = "Type the letter " + String.fromCharCode(randLetterKey);
 		$("div.infoBar").text(instruction);
 		generateLetter(randLetterKey, "");
-		$("#textbox").val(String.fromCharCode(randLetterKey));
+		setTypingInstruction(randLetterKey);
+		startTime = instructionStart;
+		stopTime = instructionEnd;
+		$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
 		$("#textbox").focus();
+		player.currentTime = startTime;
+		player.play();
 		$(document).keydown(function(e) {
 			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
 				if (e.which == randLetterKey) {
 					$("div.infoBar").text("Congratulations, that's right!!!");
 					randLetterKey = Math.floor((Math.random()*26) + 65);
 					instruction = "Type the letter " + String.fromCharCode(randLetterKey);
+					setTypingInstruction(randLetterKey);
+					startTime = instructionStart;
+					stopTime = instructionEnd;
+					player.currentTime = startTime;
+					player.play();
+					$("#textbox").val("");
+					
+					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
+					
+					$("#textbox").focus();					
 					$("div.infoBar").append("<br>" + instruction);
 				} else if (e.which >= 65 && e.which <= 90) {
+					$("#textbox").clear();
+					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
+					$("#textbox").focus();	
 					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
 				} else {
+					$("#textbox").clear();
+					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
+					$("#textbox").focus();
 					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
 				}
 				generateLetter(randLetterKey, "");
@@ -567,6 +592,7 @@ $(document).ready(function(){
 	};
 	
 	function typingGameHard(){
+		$("easyTypingDiv").hide();
 		$("#typing .cellRow").show();
 		$("#menu").css("margin-top", "0");
 		$("#textbox").focus();
@@ -584,6 +610,7 @@ $(document).ready(function(){
 		$(document).keydown(function(e) {
 			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none") {
 				if (e.which == randLetterKey) {
+					e.preventdefault();
 					$("div.infoBar").text("Congratulations, that's right!!!");
 					prevLetterKey = randLetterKey;
 					randLetterKey = Math.floor((Math.random()*26) + 65);
@@ -593,11 +620,13 @@ $(document).ready(function(){
 					playScribbleAudio(prevLetterKey);
 					$("div.infoBar").append("<br>" + instruction);
 				} else if (e.which >= 65 && e.which <= 90) {
+					e.preventdefault();
 					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
 					player.currentTime = 172.368;
 					stopTime = 175.738;
 					player.play();
 				} else {
+					e.preventdefault();
 					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
 					player.currentTime = 1.75;
 					stopTime = 5.5;

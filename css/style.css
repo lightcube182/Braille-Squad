@@ -13,7 +13,7 @@ h1 {
     text-align: center;
 }
 
-#scribble, #matching, #typing, #training, #menuButton, #buttonToggle {
+#scribble, #matching, #typing, #training, #menuButton, #buttonToggle, #easyTyping, #hardTyping {
     font-family: helvetica;
     color:purple;
     font-size:40px;
@@ -21,7 +21,7 @@ h1 {
     border-color: green;
 }
 
-#scribble, #typing, #training {
+#scribble, #typing, #matching, #training, #easyTyping, #hardTyping {
     height: auto;
     width: auto;
 }
@@ -61,8 +61,9 @@ button:hover {
 }
 
 #form {
+    top:0;
     position:fixed;
-    left:-200px;
+    left:200px;
 }
 
 #menuButton {
@@ -76,9 +77,11 @@ button:hover {
     float: right;
 }
 
-#easyTyping, #hardTyping{
+#easyTypingDiv, #hardTypingDiv{
     margin: 0 auto;
     display:none;
+    position:relative;
+    text-align: center;
 }
 
 #firstLetter, #secondLetter, #thirdLetter, #fourthLetter {

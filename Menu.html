@@ -167,8 +167,6 @@
 
         <button type="button" id="typing" class="button" name="Typing" tabindex="1">
             Typing
-	    <div id = "easyTyping" class="button">Easy</div>
-	    <div id = "hardTyping" class="button">Hard</div>
             <div class="cellRow">
 		<div class="cell cell1">
 		    <img src="images/cell.png" alt="braille cell" height="300" width="300">
@@ -195,6 +193,8 @@
 	    </div>
             <div class="infoBar"></div>
         </button>
+	<div id="easyTypingDiv" name="easyTypingDiv"><button id = "easyTyping" class="button" name="easyTyping" tabindex="1">Easy</button></div>
+	<div id="hardTypingDiv" name="hardTypingDiv"><button id = "hardTyping" class="button" name="easyTyping" tabindex="1">Hard</button></div>
 		
 	<button type="button" id="training" class="button" name="Training" tabindex="1">
             Training
@@ -240,7 +240,7 @@
     </div>
     </div>
     <div id="form">
-      <input type="text" id="textbox" aria-readonly="true"/>
+      <input type="text" id="textbox"/>
     </div>
 	<audio id="aplayer">
 		<source type="audio/mpeg" src="music/combinedAudio.mp3"></source>
