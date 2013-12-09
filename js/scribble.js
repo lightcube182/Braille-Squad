@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	var startCaratPosition = 0;
 	var matchingInterval = null;
 	//code for audio:
@@ -594,6 +593,7 @@ $(document).ready(function(){
 			$("#thirdLetter").attr("aria-hidden", "true");
 			$("#fourthLetter").attr("aria-hidden", "true");
 		}
+		$("#textbox").focus();
 	});
 	
 	function typingGameEasy(){

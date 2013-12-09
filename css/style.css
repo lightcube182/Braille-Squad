@@ -63,6 +63,7 @@ button:hover {
 #form {
     position:fixed;
     left:-200px;
+    top: 0px;
 }
 
 #menuButton {
