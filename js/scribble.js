@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	var startCaratPosition = 0;
 	var matchingInterval = null;
 	//code for audio:
@@ -9,6 +8,11 @@ $(document).ready(function(){
 	var instructionStart = 0;
 	var instructionEnd = 0;
 	var audioOnDeck = false;
+	/**
+	 * Description
+	 * @method blankFunc is an empty function. We set nextgame equal to blankfunc when we are at the main menu, and don't want any games played.
+	 * @returns nothing
+	 */
 	function blankFunc() {};
 	var nextGame = blankFunc;
 	var player = document.getElementById("aplayer");
@@ -110,7 +114,7 @@ $(document).ready(function(){
 			$("#textbox").val(temp.substring((temp.length-1),(temp.length)));
 		}
 	});
-	
+
 	$("#menuButton").click(function() {
 		clearInterval(matchingInterval);
 		$(".cellRow").hide();
@@ -129,12 +133,20 @@ $(document).ready(function(){
 		$("#fourthLetter").hide();
 		$("#allLetterButtons").hide();
 		$("#menuButton").hide();
+		$("#easyTypingDiv").hide();
+		$("#hardTypingDiv").hide();
 		$("#menuButton").css("float", "none");
 		$("#buttonToggle").hide();
 		$("#textbox").val("");
 		$(document).off("keydown");
 	});
 	
+	/**
+	 * Description
+	 * @method displays cells and instructs the user to press specific buttons in order to learn basic letters. uses getTrainingInstruction to generate instructions for the user and to define the length of
+	 * time that passes between various reward and instruction sounds.
+	 * @return nothing
+	 */
 	function trainingGame() {
 		$("#training .cellRow").show();
 		$("#matching").hide();
@@ -182,6 +194,12 @@ $(document).ready(function(){
 		});
 	};
 	
+	/**
+	 * Description
+	 * @method scribbleGame allows the user to input letters from the braille keyboard and displays the letter on the screen and plays a reward sound if the combination of buttons the children use
+	 * are a valid braille character.
+	 * @return nothing
+	 */
 	function scribbleGame() {
 		$("#scribble .cellRow").show();
 		$("#matching").hide();
@@ -211,6 +229,12 @@ $(document).ready(function(){
 	var randLetterKeys = new Array();
 	var correctAnswer;
 	
+        /**
+	 * Description
+	 * @method doGetCaretPosition retrieves the position of the cursor on the braille display for use in the matching game
+	 * @param {} ctrl is the control that is linked to the braille display (textbox)
+	 * @return CaretPos
+	 */
 	function doGetCaretPosition (ctrl) {
 		var CaretPos = 0;	// IE Support
 		if (document.selection) {
@@ -224,6 +248,14 @@ $(document).ready(function(){
 			CaretPos = ctrl.selectionStart;
 		return (CaretPos);
 	}
+        
+        /**
+	 * Description
+	 * @method setCaretPosition changes the position of the cursor on the braille display for use in the matching game
+	 * @param {} ctrl is the control linked to the braille display (textbox)
+	 * @param {} pos is the position that the cursor will be moved to
+	 * @return 
+	 */
 	function setCaretPosition(ctrl, pos){
 		if(ctrl.setSelectionRange)
 		{
@@ -239,6 +271,11 @@ $(document).ready(function(){
 		}
 	}
 	
+        /**
+	 * Description
+	 * @method dupCheck checks to make sure that no letters are duplicates in the matching game. If there are, generates a new random letter to replace the duplicate.
+	 * @return 
+	 */
 	function dupCheck() {
 		var letterMatch = false;
 		for (ind = 0; ind < 4; ind++) {
@@ -302,7 +339,14 @@ $(document).ready(function(){
 			}
 		}
 	}
-
+        
+        
+        /**
+	 * Description
+	 * @method matchingGame displays four braille letters on the screen as well as four braille characters on the braille display. It prompts the user to pick the letter that matches an instruction,
+	 * and if they do a reward sound is played and a new set of letters pop up.
+	 * @return nothing
+	 */
 	function matchingGame () {
 		$("#firstLetter, #secondLetter, #thirdLetter, #fourthLetter").css("display", "block");
 		$("#firstLetter .cellRow").css("display", "block");
@@ -532,8 +576,15 @@ $(document).ready(function(){
 			$("#thirdLetter").attr("aria-hidden", "true");
 			$("#fourthLetter").attr("aria-hidden", "true");
 		}
+		$("#textbox").focus();
 	});
 	
+        
+        /**
+	 * Description
+	 * @method typingGameEasy is the easier of the typing games, where the user is given both a verbal prompt and a letter displayed on the braille display and is expected to type that letter.
+	 * @return 
+	 */
 	function typingGameEasy(){
 		$("#matching").hide();
 		$("#scribble").hide();
@@ -567,6 +618,7 @@ $(document).ready(function(){
 					randLetterKey = Math.floor((Math.random()*26) + 65);
 					$("#textbox").val(String.fromCharCode(randLetterKey).toLowerCase());
 					instruction = "Type the letter " + String.fromCharCode(randLetterKey);
+
 					$("div.infoBar").append("<br>" + instruction);
 					setTypingInstruction(randLetterKey);
 					audioOnDeck = true;
@@ -588,59 +640,72 @@ $(document).ready(function(){
 			
 	};
 	
+	/**
+	 * Description
+	 * @method typingGameHard is the variation of the typing game where the braille character is not displayed on the braille display, and the character has to type it from memory after a verbal prompt.
+	 * @return 
+	 */
 	function typingGameHard(){
-		$("#matching").hide();
-		$("#scribble").hide();
-		$("#training").hide();
-		$("#easyTyping").hide();
-		$("#menuButton").show();
-		$("h1").hide();
-		$("div.infoBar").show();
-		$("#matchingInfoBar").hide();
-		$("#menu").css("margin-top", "0");
-		$("#hardTyping .cellRow").show();
-		$("#menu").css("margin-top", "0");
-		$("#textbox").focus();
-		$("#textbox").val("");
-		var randLetterKey = Math.floor((Math.random()*26) + 65);
-		var prevLetterKey = 0;
-		instruction = "Type the letter " + String.fromCharCode(randLetterKey);
-		$("div.infoBar").text(instruction);
-		generateLetter(randLetterKey, "");
-		setTypingInstruction(randLetterKey);
-		startTime = instructionStart;
-		stopTime = instructionEnd;
-		player.currentTime = startTime;
-		player.play();
-		$(document).keyup(function(e) {
-			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#easyTyping").css("display") == "none") {
-				if (e.which == randLetterKey) {
-					$("div.infoBar").text("Congratulations, that's right!!!");
-					prevLetterKey = randLetterKey;
-					randLetterKey = Math.floor((Math.random()*26) + 65);
-					$("#textbox").val("");
-					instruction = "Type the letter " + String.fromCharCode(randLetterKey);
-					setTypingInstruction(randLetterKey);
-					audioOnDeck = true;
-					playScribbleAudio(prevLetterKey);
-					$("div.infoBar").append("<br>" + instruction);
-				} else if (e.which >= 65 && e.which <= 90) {
-					$("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
-					player.currentTime = 172.368;
-					stopTime = 175.738;
-					player.play();
-				} else {
-					$("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
-					player.currentTime = 1.75;
-					stopTime = 5.5;
-					player.play();
-				}
-				generateLetter(randLetterKey, "");
-			}
-		});
-			
-	};
+            $("#matching").hide();
+            $("#scribble").hide();
+            $("#training").hide();
+            $("#easyTyping").hide();
+            $("#menuButton").show();
+            $("h1").hide();
+            $("div.infoBar").show();
+            $("#matchingInfoBar").hide();
+            $("#menu").css("margin-top", "0");
+            $("#hardTyping .cellRow").show();
+            $("#menu").css("margin-top", "0");
+            $("#textbox").focus();
+            $("#textbox").val("");
+            var randLetterKey = Math.floor((Math.random()*26) + 65);
+            var prevLetterKey = 0;
+            instruction = "Type the letter " + String.fromCharCode(randLetterKey);
+            $("div.infoBar").text(instruction);
+            generateLetter(randLetterKey, "");
+            setTypingInstruction(randLetterKey);
+            startTime = instructionStart;
+            stopTime = instructionEnd;
+            player.currentTime = startTime;
+            player.play();
+            $(document).keyup(function(e) {
+                if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#easyTyping").css("display") == "none") {
+                    if (e.which == randLetterKey) {
+                        $("div.infoBar").text("Congratulations, that's right!!!");
+                        prevLetterKey = randLetterKey;
+                        randLetterKey = Math.floor((Math.random()*26) + 65);
+                        $("#textbox").val("");
+                        instruction = "Type the letter " + String.fromCharCode(randLetterKey);
+                        setTypingInstruction(randLetterKey);
+                        audioOnDeck = true;
+                        playScribbleAudio(prevLetterKey);
+                        $("div.infoBar").append("<br>" + instruction);
+                    } else if (e.which >= 65 && e.which <= 90) {
+                        $("div.infoBar").text("Sorry, that's not right.  Try again!").append("<br>" + instruction);
+                        player.currentTime = 172.368;
+                        stopTime = 175.738;
+                        player.play();
+                    } else {
+                        $("div.infoBar").text("That's not a letter!  Try again!!!").append("<br>" + instruction);
+                        player.currentTime = 1.75;
+                        stopTime = 5.5;
+                        player.play();
+                    }
+                    generateLetter(randLetterKey, "");
+                }
+            });
+ 
+        };  
 	
+	
+	/**
+	 * Description
+	 * @method generateLetter hides and shows the cells needed to portray a braille letter in the ipad display.
+	 * @param {} charCode is the code of the character that is meant to be displayed 
+	 * @param {} identifier is the name of the control that the character is to be displayed inside. In every game but the matching game, this parameter is an empty string.
+	 * @return 
+	 */
 	function generateLetter(charCode, identifier) {
 		switch(charCode) {
 			case 65: //a
@@ -863,6 +928,12 @@ $(document).ready(function(){
 		}
 	};
 	
+	/**
+	 * Description
+	 * @method getTrainingInstruction changes the global variables instructionStart and instructionEnd so that the sound file we play occurs after the voiceover
+	 * @param {} charCode = the numeric code of the character that is being used as instruction
+	 * @return fullInstruction returns the text of the instruction to be displayed in the infobar, ex: "Press cells 1 and 2 to make the letter b"
+	 */
 	function getTrainingInstruction(charCode) {
 		var instructionBeginning = "Press cells ";
 		var instructionMiddle = " to make the letter ";
@@ -1037,6 +1108,12 @@ $(document).ready(function(){
 		
 	};
 	
+	/**
+	 * Description
+	 * @method playScribbleAudio plays the correct reward sound for a user's successful entry of the letter into the game.
+	 * @param {} charCode is the character code of the letter.
+	 * @return 
+	 */
 	function playScribbleAudio(charCode) {
 		switch(charCode) {
 			case 65: //a
@@ -1078,6 +1155,12 @@ $(document).ready(function(){
 	};
 	
 
+	/**
+	 * Description
+	 * @method setTypingInstruction sets the instructions for the typing game, leaving enough time so that the reward sounds and the instruction sounds do not overlap.
+	 * @param {} charCode is the character code for the letter that the game wishes to obtain the proper timing
+	 * @return 
+	 */
 	function setTypingInstruction(charCode) {
 		switch(charCode) {
 			case 65: //a
