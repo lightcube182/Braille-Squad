@@ -673,7 +673,7 @@ $(document).ready(function(){
 		player.currentTime = startTime;
 		player.play();
 		$(document).keyup(function(e) {
-			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#hardTyping").css("display") == "none") {
+			if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#hardTyping").css("display") == "none" && $("#training").css("display") == "none") {
 				if (e.which == randLetterKey) {
 					$("div.infoBar").text("Congratulations, that's right!!!");
 					prevLetterKey = randLetterKey;
@@ -732,7 +732,7 @@ $(document).ready(function(){
             player.currentTime = startTime;
             player.play();
             $(document).keyup(function(e) {
-                if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#easyTyping").css("display") == "none") {
+                if ($("#matching").css("display") == "none" && $("#scribble").css("display") == "none" && $("#easyTyping").css("display") == "none" && $("#training").css("display") == "none") {
                     if (e.which == randLetterKey) {
                         $("div.infoBar").text("Congratulations, that's right!!!");
                         prevLetterKey = randLetterKey;
